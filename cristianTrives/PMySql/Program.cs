@@ -15,6 +15,7 @@ namespace PMySql
 
 			MySqlCommand mySqlCommand = mySqlConnection.CreateCommand ();
 			mySqlCommand.CommandText = "select * from articulo";
+
 			MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader ();
 			showColumnNames (mySqlDataReader);
 			show(mySqlDataReader);
