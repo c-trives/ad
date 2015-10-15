@@ -1,6 +1,7 @@
 using System;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Collections.Generic;
 
 namespace PArticulo
 {
@@ -30,15 +31,11 @@ namespace PArticulo
 		}
 
 		public String[] showColumnNames(){
-			int numeroColumnas = mySqlDataReader.FieldCount;
-			String[] nombreColumnas = null;
-			for (int i=0; i < numeroColumnas; i++) {
-
-				nombreColumnas.SetValue (mySqlDataReader.GetName (i), i);
-			}
-
-		
-			return nombreColumnas;
+			List<string> columnNames = new List<string> ();
+			int count = mySqlDataReader.FieldCount;
+		for (int index = 0; index < count; index++)
+				columnNames.Add (mySqlDataReader.GetName (index));
+		return columnNames.ToArray ();
 		
 		}
 
