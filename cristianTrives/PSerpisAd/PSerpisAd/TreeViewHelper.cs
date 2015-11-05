@@ -28,11 +28,11 @@ namespace PSerpisAd
 
 						IList row = (IList)treeModel.GetValue (iter, 0);
 						cellRendererText.Text = row [column].ToString ();
-				});
+					});
 
+			
 
 				}
-
 
 				listStore = new ListStore (typeof(IList));
 
@@ -43,11 +43,13 @@ namespace PSerpisAd
 
 
 			foreach (IList k in values) {
+				k.Add (new Gtk.Button());
 				listStore.AppendValues (k);
 
 			}
 
 			treeView.Model = listStore;
+
 
 
 		}
