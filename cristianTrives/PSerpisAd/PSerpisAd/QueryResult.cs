@@ -3,7 +3,7 @@ using System.Data;
 using System.Collections.Generic;
 using System.Collections;
 
-namespace PArticulo
+namespace PSerpisAd
 {
 	public class QueryResult
 	{

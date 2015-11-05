@@ -1,17 +1,33 @@
 using System;
 using Gtk;
-using System.Data;
 using System.Collections;
 using System.Collections.Generic;
 using PArticulo;
+using PSerpisAd;
 
 public partial class MainWindow: Gtk.Window
 {	
+
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
 
+		/**
+		 * 
+		 * EMPLEANDO NUEVA CLASE TREEVIEWHELPER, 
+		 *
+		 */
+
 		QueryResult queryResult = PersisterHelper.Get ("select * from articulo");
+		TreeViewHelper treeViewHelper = new TreeViewHelper (treeViewArticulo,queryResult);
+		treeViewHelper.fillTreeView ();
+
+
+		/**
+		 * EMPLEANDO LA CLASE PERSISTER Y QUERYRESULT (CONEXION FUERA DEL MAINWINDOW)
+		 * 
+		*/
+		/**QueryResult queryResult = PersisterHelper.Get ("select * from articulo");
 		CellRendererText cellRendererText = new CellRendererText ();
 
 		for (int i= 0; i<queryResult.ColumNames.Length; i++) {
@@ -36,7 +52,14 @@ public partial class MainWindow: Gtk.Window
 
 		}
 
-		treeViewArticulo.Model = listStore;
+		treeViewArticulo.Model = listStore;*/
+
+
+   /**
+	* 
+    * EMPLEANDO LA CONEXION DENTRO DEL MAINWINDOW
+	* 
+    */
 
 	/**	IDbConnection dbConection = App.Instance.DbConnection;
 
@@ -81,7 +104,7 @@ public partial class MainWindow: Gtk.Window
 		treeViewArticulo.Model = listStore;
 		dataReader.Close ();
 		dbConection.Close ();
-*/
+	*/
 		}
 
 
@@ -93,6 +116,15 @@ public partial class MainWindow: Gtk.Window
 
 	protected void onClick (object sender, EventArgs e)
 	{
+		
+		QueryResult queryResult = PersisterHelper.Get ("select * from articulo");
+		TreeViewHelper treeViewHelper = new TreeViewHelper (treeViewArticulo,queryResult);
+		treeViewHelper.refreshTreeView ();
 
 	}
+	protected void OnNewActionActivated (object sender, EventArgs e)
+	{
+		new ArticuloView();
+	}
+
 }

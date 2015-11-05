@@ -4,8 +4,9 @@ public partial class MainWindow
 {
 	private global::Gtk.UIManager UIManager;
 	private global::Gtk.Action refreshAction;
+	private global::Gtk.Action newAction;
 	private global::Gtk.VBox vbox3;
-	private global::Gtk.Toolbar toolbar1;
+	private global::Gtk.Toolbar buttonAddArticulo;
 	private global::Gtk.ScrolledWindow GtkScrolledWindow;
 	private global::Gtk.TreeView treeViewArticulo;
 
@@ -17,6 +18,8 @@ public partial class MainWindow
 		global::Gtk.ActionGroup w1 = new global::Gtk.ActionGroup ("Default");
 		this.refreshAction = new global::Gtk.Action ("refreshAction", null, null, "gtk-refresh");
 		w1.Add (this.refreshAction, null);
+		this.newAction = new global::Gtk.Action ("newAction", null, null, "gtk-new");
+		w1.Add (this.newAction, null);
 		this.UIManager.InsertActionGroup (w1, 0);
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
@@ -27,12 +30,12 @@ public partial class MainWindow
 		this.vbox3.Name = "vbox3";
 		this.vbox3.Spacing = 6;
 		// Container child vbox3.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar1'><toolitem name='refreshAction' action='refreshAction'/></toolbar></ui>");
-		this.toolbar1 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget ("/toolbar1")));
-		this.toolbar1.Name = "toolbar1";
-		this.toolbar1.ShowArrow = false;
-		this.vbox3.Add (this.toolbar1);
-		global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.toolbar1]));
+		this.UIManager.AddUiFromString ("<ui><toolbar name='buttonAddArticulo'><toolitem name='refreshAction' action='refreshAction'/><toolitem name='newAction' action='newAction'/></toolbar></ui>");
+		this.buttonAddArticulo = ((global::Gtk.Toolbar)(this.UIManager.GetWidget ("/buttonAddArticulo")));
+		this.buttonAddArticulo.Name = "buttonAddArticulo";
+		this.buttonAddArticulo.ShowArrow = false;
+		this.vbox3.Add (this.buttonAddArticulo);
+		global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.buttonAddArticulo]));
 		w2.Position = 0;
 		w2.Expand = false;
 		w2.Fill = false;
@@ -52,10 +55,11 @@ public partial class MainWindow
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
-		this.DefaultWidth = 437;
+		this.DefaultWidth = 469;
 		this.DefaultHeight = 300;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.refreshAction.Activated += new global::System.EventHandler (this.onClick);
+		this.newAction.Activated += new global::System.EventHandler (this.OnNewActionActivated);
 	}
 }

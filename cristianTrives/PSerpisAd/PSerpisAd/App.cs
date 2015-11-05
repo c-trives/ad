@@ -2,7 +2,7 @@ using System;
 using System.Data;
 using MySql.Data.MySqlClient;
 
-namespace PArticulo
+namespace PSerpisAd
 {
 	public class App
 	{
@@ -18,22 +18,23 @@ namespace PArticulo
 
 		public static App Instance{
 			get{
+
 				return instance;
 			}
 		}
 
-		public IDbConnection DbConnection{
-			get{ 
-				if(dbConnection == null){
-						dbConnection = new MySqlConnection (
-						"Database=dbprueba;Data Source=localhost;User Id=root;Password=sistemas"
-						);
-						DbConnection.Open ();
-				}
+		public IDbConnection DbConnection {
+			get { 
+				
 				return dbConnection;
+
+
+			}
+			set {
+				dbConnection = value;
+		
 			}
 		}
-
 	}
 }
 
