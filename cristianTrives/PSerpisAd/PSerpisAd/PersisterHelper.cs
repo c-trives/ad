@@ -93,6 +93,28 @@ namespace PSerpisAd
 
 		}
 
+		public static void Delete(string tabla, int id){
+	
+			IDbConnection dbConnection = App.Instance.DbConnection;
+
+			if (dbConnection.State.ToString () == "Closed") {
+
+				dbConnection.Open ();
+			}
+			IDbCommand dbCommand = dbConnection.CreateCommand ();
+		
+			string command = "delete from " + tabla + " where id = @id";
+		
+			dbCommand.CommandText = command;
+			IDbDataParameter dbDataParameter = dbCommand.CreateParameter ();
+			dbDataParameter.ParameterName = "id";
+			dbDataParameter.Value = id;
+			dbCommand.Parameters.Add (dbDataParameter);
+			dbCommand.ExecuteNonQuery ();
+			dbCommand.Dispose ();
+			dbConnection.Close ();
+		}
+
 		private static string[] getColumnNames(IDataReader dataReader) {
 			List<string> columnNames = new List<string> ();
 			int count = dataReader.FieldCount;

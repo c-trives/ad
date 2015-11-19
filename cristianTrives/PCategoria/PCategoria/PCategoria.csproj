@@ -64,6 +64,9 @@
       <HintPath>..\..\..\..\..\..\usr\lib\cli\MySql.Data-6.4\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="PSerpisTrives">
+      <HintPath>..\..\PSerpisTrives\PSerpisTrives\bin\Debug\PSerpisTrives.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">

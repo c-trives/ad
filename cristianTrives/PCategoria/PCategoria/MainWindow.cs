@@ -1,6 +1,8 @@
 using System;
 using Gtk;
 using PSerpisAd;
+using PSerpisTrives;
+
 using PCategoria;
 
 public partial class MainWindow: Gtk.Window
@@ -9,8 +11,9 @@ public partial class MainWindow: Gtk.Window
 	{
 		Build ();
 		QueryResult query = PersisterHelper.Get ("select * from Categoria");
-		TreeViewHelper treeViewHelper = new TreeViewHelper (treeViewCategoria,query);
-		treeViewHelper.fillTreeView ();
+		TreeViewHelperGenericGraphic treeViewHelperGenericGraphic = new TreeViewHelperGenericGraphic (treeViewCategoria,query,"Categoria");
+
+		treeViewHelperGenericGraphic.fillTreeView ();
 
 	}
 
@@ -27,9 +30,9 @@ public partial class MainWindow: Gtk.Window
 	protected void onRefreshActionActivated (object sender, EventArgs e)
 	{
 
-		QueryResult query = PersisterHelper.Get ("select * from Categoria");
-		TreeViewHelper treeViewHelper = new TreeViewHelper (treeViewCategoria,query);
-		treeViewHelper.refreshTreeView ();
+		//QueryResult query = PersisterHelper.Get ("select * from Categoria");
+		//TreeViewHelper treeViewHelper = new TreeViewHelper (treeViewCategoria,query);
+		//treeViewHelper.refreshTreeView ();
 
 	}
 

@@ -6,6 +6,7 @@ namespace PCategoria
 	{
 		private global::Gtk.UIManager UIManager;
 		private global::Gtk.Action saveCategoria;
+		private global::Gtk.Action Action;
 		private global::Gtk.VBox vbox2;
 		private global::Gtk.Toolbar toolbar2;
 		private global::Gtk.Table table1;
@@ -20,6 +21,8 @@ namespace PCategoria
 			global::Gtk.ActionGroup w1 = new global::Gtk.ActionGroup ("Default");
 			this.saveCategoria = new global::Gtk.Action ("saveCategoria", null, null, "gtk-save");
 			w1.Add (this.saveCategoria, null);
+			this.Action = new global::Gtk.Action ("Action", null, null, null);
+			w1.Add (this.Action, null);
 			this.UIManager.InsertActionGroup (w1, 0);
 			this.AddAccelGroup (this.UIManager.AccelGroup);
 			this.Name = "PCategoria.CategoriaView";
@@ -30,7 +33,7 @@ namespace PCategoria
 			this.vbox2.Name = "vbox2";
 			this.vbox2.Spacing = 6;
 			// Container child vbox2.Gtk.Box+BoxChild
-			this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar2'><toolitem name='saveCategoria' action='saveCategoria'/></toolbar></ui>");
+			this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar2'><toolitem name='saveCategoria' action='saveCategoria'/><toolitem name='Action' action='Action'/></toolbar></ui>");
 			this.toolbar2 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget ("/toolbar2")));
 			this.toolbar2.Name = "toolbar2";
 			this.toolbar2.ShowArrow = false;

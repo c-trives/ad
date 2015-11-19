@@ -84,6 +84,10 @@
         <property name="StockId">gtk-save</property>
         <signal name="Activated" handler="onSaveCategoriaActivated" />
       </action>
+      <action id="Action">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+      </action>
     </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">CategoriaView</property>
@@ -98,6 +102,7 @@
             <property name="ShowArrow">False</property>
             <node name="__gtksharp_88_Stetic_Editor_ActionToolbar" type="Toolbar">
               <node type="Toolitem" action="saveCategoria" />
+              <node type="Toolitem" action="Action" />
             </node>
           </widget>
           <packing>
