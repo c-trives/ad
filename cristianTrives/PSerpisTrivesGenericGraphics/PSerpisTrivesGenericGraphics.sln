@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSerpisTrivesGenericGraphics", "PSerpisTrivesGenericGraphics\PSerpisTrivesGenericGraphics.csproj", "{10EE7684-3F61-4C0B-832D-BF780B217538}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10EE7684-3F61-4C0B-832D-BF780B217538}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10EE7684-3F61-4C0B-832D-BF780B217538}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10EE7684-3F61-4C0B-832D-BF780B217538}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10EE7684-3F61-4C0B-832D-BF780B217538}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = PSerpisTrivesGenericGraphics\PSerpisTrivesGenericGraphics.csproj
+	EndGlobalSection
+EndGlobal

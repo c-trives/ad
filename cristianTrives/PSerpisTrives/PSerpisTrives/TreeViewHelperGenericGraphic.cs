@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Gdk;
 using PSerpisAd;
+using PSerpisTrivesGenericGraphics;
 
 namespace PSerpisTrives
 {
@@ -20,6 +21,8 @@ namespace PSerpisTrives
 			this.queryResult = queryResultExt;
 			this.tabla = tabla;
 		}
+
+		bool response;
 
 		public void fillTreeView(){
 
@@ -77,12 +80,17 @@ namespace PSerpisTrives
 
 					Console.WriteLine(tituloRow + " prueba path:" +args.Path);
 
+
+
+				
+
 					TreeIter treeIter = new TreeIter();
 
 					treeView.Model.GetIter(out treeIter,args.Path);
 
 					IList row = (IList) treeView.Model.GetValue(treeIter,0);
-
+					int id = int.Parse(row [0].ToString());
+					QueryResult queryResultGet = PersisterHelper.Get("select * from " + tabla + "where id="+id);
 
 				}
 
@@ -98,7 +106,24 @@ namespace PSerpisTrives
 
 					IList row = (IList) treeView.Model.GetValue(treeIter,0);
 					int id = int.Parse(row [0].ToString());
-					PersisterHelper.Delete(tabla,id);
+
+					MessageDialog messageDialog = new MessageDialog(new Gtk.Window("Dialog"), 
+					                                                DialogFlags.DestroyWithParent,
+					                                                MessageType.Question, 
+					                                                ButtonsType.YesNo, "¿Esta seguro que desea eliminar?");
+
+					ResponseType result = (ResponseType)messageDialog.Run ();
+
+					if (result == ResponseType.Yes){
+						
+						messageDialog.Destroy();
+						PersisterHelper.Delete(tabla,id);
+					
+					}
+					else{
+						messageDialog.Destroy();
+
+					}
 				}
 
 			});

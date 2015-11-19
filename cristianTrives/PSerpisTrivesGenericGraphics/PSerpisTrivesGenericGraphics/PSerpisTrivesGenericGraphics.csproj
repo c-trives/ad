@@ -5,10 +5,10 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E9C25C45-F13D-472B-A766-344650A10C04}</ProjectGuid>
+    <ProjectGuid>{10EE7684-3F61-4C0B-832D-BF780B217538}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>PSerpisTrives</RootNamespace>
-    <AssemblyName>PSerpisTrives</AssemblyName>
+    <RootNamespace>PSerpisTrivesGenericGraphics</RootNamespace>
+    <AssemblyName>PSerpisTrivesGenericGraphics</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,32 +31,28 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
-      <Private>False</Private>
       <Package>gtk-sharp-2.0</Package>
     </Reference>
     <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
-      <Private>False</Private>
       <Package>gtk-sharp-2.0</Package>
     </Reference>
-    <Reference Include="System.Data" />
+    <Reference Include="Mono.Posix" />
     <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
       <Private>False</Private>
       <Package>gtk-sharp-2.0</Package>
     </Reference>
-    <Reference Include="PSerpisAd">
-      <HintPath>..\..\PSerpisAd\PSerpisAd\bin\Debug\PSerpisAd.dll</HintPath>
-    </Reference>
-    <Reference Include="PSerpisTrivesGenericGraphics">
-      <HintPath>..\..\PSerpisTrivesGenericGraphics\PSerpisTrivesGenericGraphics\bin\Debug\PSerpisTrivesGenericGraphics.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TreeViewHelperGenericGraphic.cs" />
+    <Compile Include="gtk-gui\generated.cs" />
+    <Compile Include="DialogGeneric.cs" />
+    <Compile Include="gtk-gui\PSerpisTrivesGenericGraphics.DialogGeneric.cs" />
+    <Compile Include="GenericSaveWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <EmbeddedResource Include="delete.png" />
-    <EmbeddedResource Include="edit.png" />
+    <EmbeddedResource Include="gtk-gui\gui.stetic">
+      <LogicalName>gui.stetic</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
